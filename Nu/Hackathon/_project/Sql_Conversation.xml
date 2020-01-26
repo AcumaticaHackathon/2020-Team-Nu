@@ -1,0 +1,16 @@
+﻿<Sql TableName="Conversation" TableSchemaXml="#CDATA">
+  <CDATA name="TableSchemaXml">
+    <![CDATA[<table name="Conversation">
+  <col name="CompanyId" type="Int" default="Zero" />
+  <col name="ConversationId" type="Int" identity="true" />
+  <col name="UserId" type="UniqueIdentifier" nullable="true" />
+  <col name="SecondUserId" type="UniqueIdentifier" nullable="true" />
+  <col name="RelatedEntityId" type="UniqueIdentifier" nullable="true" />
+  <col name="NoteId" type="UniqueIdentifier" nullable="true" />
+  <index name="Conversation_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyId" />
+    <col name="ConversationId" />
+  </index>
+</table>]]>
+  </CDATA>
+</Sql>

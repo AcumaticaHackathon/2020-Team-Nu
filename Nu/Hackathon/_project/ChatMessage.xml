@@ -1,0 +1,15 @@
+﻿<Sql TableName="ChatMessage" TableSchemaXml="#CDATA">
+  <CDATA name="TableSchemaXml">
+    <![CDATA[<table name="ChatMessage">
+  <col name="CompanyId" type="Int" default="Zero" />
+  <col name="ChatMessageId" type="Int" identity="true" />
+  <col name="ConversationId" type="Int" />
+  <col name="Message" type="NVarChar(255)" />
+  <col name="NoteId" type="UniqueIdentifier" nullable="true" />
+  <index name="ChatMessage_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyId" />
+    <col name="ChatMessageId" />
+  </index>
+</table>]]>
+  </CDATA>
+</Sql>
