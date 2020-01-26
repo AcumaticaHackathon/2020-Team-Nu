@@ -1,5 +1,6 @@
 ﻿using System;
 using PX.Data;
+using PX.Data.BQL;
 
 namespace Hackathon
 {
@@ -12,8 +13,8 @@ namespace Hackathon
             set;
         }
 
-        [PXDBGuid]
-        public Guid? UserId
+        [PXDBString]
+        public Guid? UserName
         {
             get;
             set;
@@ -26,11 +27,27 @@ namespace Hackathon
             set;
         }
 
-        [PXDBGuid]
-        public Guid? SecondUserId
+        [PXDBString]
+        public Guid? SecondUserName
         {
             get;
             set;
+        }
+
+        public abstract class conversationId : BqlInt.Field<conversationId>
+        {
+        }
+
+        public abstract class userName : BqlString.Field<userName>
+        {
+        }
+
+        public abstract class secondUserName : BqlString.Field<secondUserName>
+        {
+        }
+
+        public abstract class relatedEntityNoteId : BqlGuid.Field<relatedEntityNoteId>
+        {
         }
     }
 }

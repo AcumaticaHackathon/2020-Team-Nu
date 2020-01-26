@@ -2,14 +2,20 @@
 using PX.Data;
 using PX.Data.BQL.Fluent;
 using PX.Objects.CR;
+using PX.SM;
 
 namespace Hackathon
 {
     public class ChatMaint : PXGraph<ChatMaint>
     {
         public SelectFrom<Conversation>.View Conversation;
-        public SelectFrom<ChatMessage>.View Messages;
+
+        public SelectFrom<ChatMessage>
+            .Where<ChatMessage.conversationId.IsEqual<Conversation.conversationId.FromCurrent>>.View Messages;
+
         public SelectFrom<CRActivity>.View Activities;
+
+        public SelectFrom<Users>.View Users;
 
         public IEnumerable CreateActivity(PXAdapter adapter)
         {

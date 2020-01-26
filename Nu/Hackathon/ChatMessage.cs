@@ -1,4 +1,5 @@
 ﻿using PX.Data;
+using PX.Data.BQL;
 
 namespace Hackathon
 {
@@ -23,6 +24,18 @@ namespace Hackathon
         {
             get;
             set;
+        }
+
+        public abstract class chatMessageId : BqlInt.Field<chatMessageId>
+        {
+        }
+
+        public abstract class conversationId : BqlInt.Field<conversationId>
+        {
+        }
+
+        public abstract class message : BqlString.Field<message>
+        {
         }
     }
 }
