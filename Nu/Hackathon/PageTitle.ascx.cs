@@ -46,6 +46,9 @@ using Microsoft.Practices.ServiceLocation;
 using PX.Data.SQLTree;
 using PX.Web.UI.Frameset.Services;
 using Autofac;
+using Hackathon;
+using Microsoft.AspNet.SignalR;
+using Owin;
 using PX.Web.UI.Frameset.Model.DAC;
 
 #pragma warning disable 618
@@ -313,7 +316,11 @@ public partial class User_PageTitle : TitlePanel, ITitleModuleController
 		if (date != null) PXDateTimeEdit.SetDefaultDate((DateTime)date);
 
 		if (!Page.IsCallback) Session.Remove("StoredSearch");
-    }
+
+        Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "jq", VirtualPathUtility.ToAbsolute("~/Scripts/jquery-3.1.1.min.js"));
+        Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "jqsr", VirtualPathUtility.ToAbsolute("~/Scripts/jquery.signalR-2.2.1.min.js"));
+        Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "hb", VirtualPathUtility.ToAbsolute("~/signalr/hubs"));
+	}
 
     protected void PreGetCallbackResult(PXCallbackManager sender, XmlWriter writer)
 	{
@@ -1149,5 +1156,66 @@ public partial class User_PageTitle : TitlePanel, ITitleModuleController
 	}
 	#endregion
 
+    protected void OnClick1(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+	//protected void userNames_OnLoad(object sender, EventArgs e)
+	//{
+	//	var graph = PXGraph.CreateInstance<ChatMaint>();
+	//	var users = graph.Users.SelectMain();
+	//	foreach (var user in users)
+	//	{
+	//		userNames.Items.Add(new ListItem(user.Username));
+	//	}
+	//}
+
+	//protected void conversation_OnUnload(object sender, EventArgs e)
+ //   {
+ //   }
+
+	//protected void userNames_OnTextChanged(object sender, EventArgs e)
+	//{
+	//	var refUser = userNames.Text;
+	//	var currentUser = PXAccess.GetUserName();
+	//	var graph = PXGraph.CreateInstance<ChatMaint>();
+	//	var conversation = graph.Conversation.SelectMain()
+	//		.FirstOrDefault(con => con.UserName == currentUser && con.SecondUserName == refUser);
+	//	if (conversation != null)
+	//	{
+	//		graph.Conversation.Current = conversation;
+	//		var messages = graph.Messages.SelectMain();
+	//		var a = messages.Select(x => x + "&#13;&#10;");
+	//		foreach (var c in a)
+	//		{
+	//			this.conversation.Text += a;
+	//		}
+	//	}
+	//}
+
+	//protected void userNames_OnSelectedIndexChanged(object sender, EventArgs e)
+	//{
+	//	var refUser = userNames.SelectedItem.Value;
+	//	var currentUser = PXAccess.GetUserName();
+	//	var graph = PXGraph.CreateInstance<ChatMaint>();
+	//	var conversation = graph.Conversation.SelectMain()
+	//		.FirstOrDefault(con => con.UserName == currentUser && con.SecondUserName == refUser);
+	//	if (conversation != null)
+	//	{
+	//		graph.Conversation.Current = conversation;
+	//		var messages = graph.Messages.SelectMain();
+	//		var a = messages.Select(x => x + "&#13;&#10;");
+	//		foreach (var c in a)
+	//		{
+	//			this.conversation.Text += a;
+	//		}
+	//	}
+	//}
+
+    protected void OnCallBack(object sender, PXCallBackEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
 

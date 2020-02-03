@@ -14,7 +14,7 @@ namespace Hackathon
         }
 
         [PXDBString]
-        public Guid? UserName
+        public string UserName
         {
             get;
             set;
@@ -28,7 +28,7 @@ namespace Hackathon
         }
 
         [PXDBString]
-        public Guid? SecondUserName
+        public string SecondUserName
         {
             get;
             set;

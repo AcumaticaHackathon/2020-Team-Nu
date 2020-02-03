@@ -5,7 +5,7 @@
   <col name="ConversationId" type="Int" identity="true" />
   <col name="UserName" type="NVarChar(255)" nullable="true" />
   <col name="SecondUserName" type="NVarChar(255)" nullable="true" />
-  <col name="RelatedEntityId" type="UniqueIdentifier" nullable="true" />
+  <col name="RelatedEntityNoteId" type="UniqueIdentifier" nullable="true" />
   <col name="NoteId" type="UniqueIdentifier" nullable="true" />
   <index name="Conversation_PK" clustered="true" primary="true" unique="true">
     <col name="CompanyId" />
